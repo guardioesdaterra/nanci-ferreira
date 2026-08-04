@@ -2,6 +2,7 @@
   "name": "dita-website-vue",
   "version": "1.0.0",
   "type": "module",
+  "packageManager": "pnpm@11.8.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
