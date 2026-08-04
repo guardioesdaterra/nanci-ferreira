@@ -16,11 +16,14 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 const categories = ['Todos', 'Cultura', 'Natureza', 'Eventos', 'Artesanato', 'Comunidade']
 const categoryMap = ['Cultura', 'Natureza', 'Eventos', 'Artesanato', 'Comunidade']
 
-const galleryImages = Array.from({ length: 80 }, (_, i) => ({
-  src: getImagePath(`/dita (${i + 10}).webp`),
-  alt: `Dita foto ${i + 10}`,
-  category: categoryMap[i % categoryMap.length],
-}))
+const missing = new Set([32, 33, 37, 55])
+const galleryImages = Array.from({ length: 80 }, (_, i) => i + 10)
+  .filter(n => !missing.has(n))
+  .map((n, i) => ({
+    src: getImagePath(`/dita (${n}).webp`),
+    alt: `Dita foto ${n}`,
+    category: categoryMap[i % categoryMap.length],
+  }))
 </script>
 
 <template>
