@@ -57,8 +57,8 @@ onMounted(() => {
         <div class="space-y-6">
           <div class="marcha-content card" style="opacity:0">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center flex-shrink-0">
-                <Users class="w-6 h-6 text-white" />
+              <div class="w-12 h-12 rounded-xl border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+                <Users class="w-6 h-6 text-purple-400" />
               </div>
               <div>
                 <h3 class="text-white font-bold text-lg mb-2">Representando o Interior Paulista</h3>

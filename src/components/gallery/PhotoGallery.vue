@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { useSwipe, onKeyStroke } from '@vueuse/core'
-import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-vue-next'
+import { X, ChevronLeft, ChevronRight, Expand } from 'lucide-vue-next'
 
 interface GalleryImage {
   src: string
@@ -112,10 +112,9 @@ watch(activeCategory, () => {
            fetchpriority="low"
            @load="onImageLoad(index)"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-            <ZoomIn class="w-4 h-4 text-white" />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="w-11 h-11 rounded-full backdrop-blur-md border border-white/25 flex items-center justify-center group-hover:scale-100 scale-75 transition-transform duration-300">
+            <Expand class="w-5 h-5 text-white" />
           </div>
         </div>
       </div>
@@ -138,9 +137,12 @@ watch(activeCategory, () => {
         <div
           v-if="selectedIndex !== null && currentImage"
           ref="lightboxRef"
-          class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center touch-pan-y"
+          class="fixed inset-0 z-[100] bg-black flex items-center justify-center touch-pan-y"
           @click.self="closeLightbox"
         >
+          <!-- Cinema vignette overlay -->
+          <div class="cinema-vignette pointer-events-none" />
+
           <!-- Navigation -->
           <button
             v-if="selectedIndex > 0"
@@ -163,7 +165,7 @@ watch(activeCategory, () => {
             <img
               :src="currentImage.src"
               :alt="currentImage.alt"
-              class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              class="cinema-image max-w-full max-h-[85vh] object-contain"
             />
           </div>
 
@@ -213,6 +215,47 @@ watch(activeCategory, () => {
 
 .nav-btn:hover {
   transform: translateY(-50%) scale(1.1);
+}
+
+.cinema-image {
+  border-radius: 4px;
+  filter: brightness(1.05) contrast(1.02);
+  box-shadow: 0 0 120px rgba(0, 0, 0, 0.9);
+  animation: cinemaReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 75%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  animation: vignetteFade 0.6s ease;
+}
+
+@keyframes cinemaReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+    filter: brightness(0.7) blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1.05) contrast(1.02);
+  }
+}
+
+@keyframes vignetteFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox-enter-active,

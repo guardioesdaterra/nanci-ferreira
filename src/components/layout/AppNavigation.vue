@@ -77,7 +77,7 @@ onUnmounted(() => {
     
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-3 group" @click.prevent="scrollTo('#hero')">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 p-0.5 group-hover:scale-105 transition-transform">
+        <div class="w-10 h-10 rounded-full border border-emerald-500/20 p-0.5 group-hover:scale-105 transition-transform">
           <div class="w-full h-full rounded-full overflow-hidden bg-forest-950">
             <img :src="getImagePath('/dita_logo.png')" alt="Logo" class="w-full h-full object-cover" />
           </div>
@@ -105,7 +105,7 @@ onUnmounted(() => {
           href="https://www.instagram.com/dita22067/"
           target="_blank"
           rel="noopener noreferrer"
-          class="ml-2 w-9 h-9 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center hover:scale-110 transition-transform"
+          class="ml-2 w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:scale-110 transition-transform"
         >
           <Instagram class="w-4 h-4 text-white" />
         </a>
@@ -117,7 +117,7 @@ onUnmounted(() => {
   <header v-if="isMobile" class="fixed top-0 left-0 right-0 z-50 glass py-3 px-4 safe-top">
     <div class="flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2" @click.prevent="scrollTo('#hero')">
-        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 p-0.5">
+        <div class="w-8 h-8 rounded-full border border-emerald-500/20 p-0.5">
           <div class="w-full h-full rounded-full overflow-hidden bg-forest-950">
             <img :src="getImagePath('/dita_logo.png')" alt="Logo" class="w-full h-full object-cover" />
           </div>

@@ -38,19 +38,19 @@ const scrollToAbout = () => {
 
     <!-- Ambient glow effects -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div 
-        class="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
+      <div
+        class="absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-10"
         :style="{
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, transparent 70%)',
           left: '10%',
           top: '20%',
           transform: `translate(${mouseX * 0.5}px, ${mouseY * 0.5}px)`
         }"
       />
-      <div 
-        class="absolute w-[500px] h-[500px] rounded-full blur-[100px] opacity-15"
+      <div
+        class="absolute w-[350px] h-[350px] rounded-full blur-[80px] opacity-10"
         :style="{
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, transparent 70%)',
           right: '10%',
           bottom: '20%',
           transform: `translate(${-mouseX * 0.3}px, ${-mouseY * 0.3}px)`
@@ -138,11 +138,11 @@ const scrollToAbout = () => {
           style="--delay: 500ms"
         >
           <!-- Animated rings -->
-          <div class="absolute -inset-6 rounded-full border border-emerald-500/20 animate-pulse-glow" />
-          <div class="absolute -inset-10 rounded-full border border-cyan-500/10 animate-pulse-glow" style="animation-delay: 0.5s" />
+          <div class="absolute -inset-6 rounded-full border border-emerald-500/15" />
+          <div class="absolute -inset-10 rounded-full border border-cyan-500/10" />
           
           <!-- Glow effect -->
-          <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/25 via-cyan-500/20 to-purple-500/25 rounded-full blur-2xl animate-pulse-glow" />
+          <div class="absolute -inset-4 bg-emerald-500/10 rounded-full blur-2xl" />
           
           <!-- Image container -->
           <div class="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">

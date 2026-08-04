@@ -27,8 +27,8 @@ const scrollTo = (href: string) => {
         <!-- Brand -->
         <div>
           <div class="flex items-center gap-2 mb-4">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
-              <Leaf class="w-4 h-4 text-white" />
+            <div class="w-9 h-9 rounded-full border border-emerald-500/20 flex items-center justify-center">
+              <Leaf class="w-4 h-4 text-emerald-400" />
             </div>
             <h3 class="text-lg font-bold">
               <span class="text-white">Nanci</span>

@@ -65,8 +65,8 @@ onMounted(() => {
           <div v-if="i < nanciData.lineage.figures.length - 1" class="hidden md:flex absolute top-1/2 -right-6 -translate-y-1/2 items-center justify-center z-20">
             <ArrowDown class="w-5 h-5 text-amber-400 rotate-[-90deg]" />
           </div>
-          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br flex items-center justify-center mb-4" :class="f.color">
-            <component :is="getIcon(f.icon)" class="w-8 h-8 text-white" />
+          <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 border border-white/10">
+            <component :is="getIcon(f.icon)" class="w-8 h-8" :class="f.color.includes('emerald') ? 'text-emerald-400' : f.color.includes('amber') ? 'text-amber-400' : 'text-purple-400'" />
           </div>
           <span class="text-amber-400/80 text-xs font-semibold uppercase tracking-wider">{{ f.relation }}</span>
           <h3 class="text-white font-bold text-lg mt-1">{{ f.name }}</h3>

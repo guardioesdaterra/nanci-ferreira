@@ -50,10 +50,9 @@ onMounted(() => {
       <!-- Highlights -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         <div v-for="(h, i) in nanciData.leadership.highlights" :key="i" class="leadership-card card" style="opacity:0">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r rounded-t-2xl" :class="h.color" />
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br flex items-center justify-center flex-shrink-0" :class="h.color">
-              <component :is="getIcon(h.icon)" class="w-4 h-4 text-white" />
+            <div class="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0">
+              <component :is="getIcon(h.icon)" class="w-4 h-4" :class="h.color.includes('emerald') ? 'text-emerald-400' : h.color.includes('amber') ? 'text-amber-400' : h.color.includes('purple') ? 'text-purple-400' : h.color.includes('rose') ? 'text-rose-400' : h.color.includes('cyan') ? 'text-cyan-400' : 'text-emerald-400'" />
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center justify-between gap-2 mb-1">

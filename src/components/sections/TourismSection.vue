@@ -18,7 +18,7 @@ import { SectionBackground } from '@/components/ui'
       </div>
 
       <div class="card text-center">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-emerald-600/30 to-cyan-600/30 flex items-center justify-center mb-4">
+        <div class="w-12 h-12 mx-auto rounded-xl border border-emerald-500/20 flex items-center justify-center mb-4">
           <Globe class="w-6 h-6 text-emerald-400" />
         </div>
         <h3 class="text-white font-semibold text-lg mb-1">Prata Expedições</h3>

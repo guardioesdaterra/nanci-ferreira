@@ -15,7 +15,7 @@ const getIcon = (name: string) => {
   return iconComponents[name as keyof typeof iconComponents]
 }
 
-const iconColors = ['from-emerald-500/30 to-green-600/30', 'from-amber-500/30 to-orange-600/30', 'from-cyan-500/30 to-teal-600/30']
+const iconColors = ['text-emerald-400', 'text-amber-400', 'text-cyan-400']
 const sectionRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
 
@@ -64,11 +64,10 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
           :style="{ transitionDelay: `${200 + i * 100}ms` }"
         >
-          <div 
-            class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-            :class="`bg-gradient-to-br ${iconColors[i]}`"
+          <div
+            class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 border border-white/10"
           >
-            <component :is="getIcon(skill.icon)" class="w-6 h-6 text-white" />
+            <component :is="getIcon(skill.icon)" class="w-6 h-6" :class="iconColors[i]" />
           </div>
           <h3 class="text-white font-semibold mb-2 text-lg">{{ skill.title }}</h3>
           <p class="text-white/50 text-sm leading-relaxed">{{ skill.description }}</p>

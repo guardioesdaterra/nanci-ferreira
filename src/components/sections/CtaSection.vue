@@ -56,8 +56,8 @@ onMounted(() => {
 
         <div class="relative">
           <!-- Icon -->
-          <div class="cta-icon w-16 h-16 rounded-full bg-gradient-to-br from-rose-500/80 to-rose-600/80 flex items-center justify-center mx-auto mb-6 animate-pulse-glow shadow-lg shadow-rose-500/20" style="opacity: 0">
-            <Heart class="w-8 h-8 text-white" />
+          <div class="cta-icon w-16 h-16 rounded-full border border-rose-500/20 flex items-center justify-center mx-auto mb-6" style="opacity: 0">
+            <Heart class="w-8 h-8 text-rose-400" />
           </div>
 
           <!-- Title -->

@@ -23,6 +23,23 @@ const getIcon = (name: string) => {
   return iconComponents[name as keyof typeof iconComponents]
 }
 
+const getIconColor = (color: string) => {
+  const colorMap: Record<string, string> = {
+    'from-emerald-600/30 to-green-700/30': 'text-emerald-400',
+    'from-cyan-600/30 to-blue-700/30': 'text-cyan-400',
+    'from-amber-600/30 to-orange-700/30': 'text-amber-400',
+    'from-rose-600/30 to-red-700/30': 'text-rose-400',
+    'from-purple-600/30 to-indigo-700/30': 'text-purple-400',
+    'from-teal-600/30 to-emerald-700/30': 'text-teal-400',
+    'from-teal-600/30 to-cyan-700/30': 'text-teal-400',
+    'from-pink-600/30 to-rose-700/30': 'text-pink-400',
+    'from-green-600/30 to-emerald-700/30': 'text-green-400',
+    'from-blue-600/30 to-sky-700/30': 'text-blue-400',
+    'from-red-600/30 to-orange-700/30': 'text-red-400',
+  }
+  return colorMap[color] || 'text-emerald-400'
+}
+
 const getGradientClasses = (color: string) => {
   const colorMap: Record<string, { bg: string; glow: string; border: string }> = {
     'from-emerald-600/30 to-green-700/30': { bg: 'from-emerald-500 to-green-600', glow: 'group-hover:shadow-emerald-500/20', border: 'group-hover:border-emerald-500/30' },
@@ -81,20 +98,14 @@ onMounted(() => {
           <!-- Glass background -->
           <div class="absolute inset-0 backdrop-blur-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.08] rounded-2xl transition-all duration-500 group-hover:border-white/20 group-hover:from-white/[0.12] group-hover:to-white/[0.04]" />
           
-          <!-- Shimmer effect on hover -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-          </div>
-
           <!-- Content -->
           <div class="relative z-10 p-5 h-full flex flex-col">
             <!-- Header with icon and role badge -->
             <div class="flex items-start gap-4 mb-4">
-              <div 
-                class="w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center flex-shrink-0 shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl"
-                :class="getGradientClasses(org.color).bg"
+              <div
+                class="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110"
               >
-                <component :is="getIcon(org.icon)" class="w-6 h-6 text-white drop-shadow-sm" />
+                <component :is="getIcon(org.icon)" class="w-6 h-6" :class="getIconColor(org.color)" />
               </div>
               <div class="flex-1 min-w-0 pt-1">
                 <span 
@@ -136,11 +147,6 @@ onMounted(() => {
             </div>
           </div>
 
-          <!-- Corner accent -->
-          <div 
-            class="absolute -top-12 -right-12 w-24 h-24 rounded-full opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-40 group-hover:scale-150"
-            :class="['bg-gradient-to-br', getGradientClasses(org.color).bg]"
-          />
         </div>
       </div>
     </div>

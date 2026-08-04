@@ -59,6 +59,26 @@ export interface GuardioesDaTerra {
   activities: string[]
 }
 
+export interface CulturePoint {
+  name: string
+  type: string
+  badge?: string
+  relation: string
+  description: string
+  link?: string
+  handle?: string
+  since?: string
+  featured?: boolean
+  icon: string
+  color: string
+  activities?: string[]
+  event?: {
+    name: string
+    description: string
+    participations: string[]
+  }
+}
+
 export interface KintalDaDita {
   name: string
   location: string
@@ -185,6 +205,8 @@ export interface NanciData {
   territory: Territory
   guardioesDaTerra: GuardioesDaTerra
   kintalDaDita: KintalDaDita
+  culturePoints: CulturePoint[]
+  regionalCulture: string[]
   agroecology: AgroecologyTraining
   expertise: Expertise[]
   organizations: Organization[]
@@ -224,8 +246,8 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
     badge: 'Herdeira de Saberes',
     description: 'Dita é o elo vivo entre os saberes que recebeu e as gerações que ainda virão. Neta de curandeira, filha de líder comunitário, hoje é a "Conselheira da Sabedoria" que forma biólogos, professores e jovens artesãos.',
     figures: [
-      { relation: 'Avó', name: 'A Curandeira', title: 'Mestra das Ervas', description: 'Guardiã das plantas medicinais e curas da Mata Atlântica. Deixou a Dita o conhecimento sobre ervas, sementes e o cuidado com o corpo e a terra.', icon: 'Leaf', color: 'from-emerald-500 to-green-600' },
-      { relation: 'Pai', name: 'O Líder Comunitário', title: 'Homem de Comunidade', description: 'A quem Dita deve o senso de coletivo e a coragem de liderar. Dele herdou a defesa da comunidade e da terra da Cascata.', icon: 'Users', color: 'from-amber-500 to-orange-600' },
+      { relation: 'Avó', name: 'A Curandeira', title: 'Mestra das Ervas', description: 'Guardiã das plantas medicinais e curas da Mata Atlântica, parteira renomada da cidade. Deixou a Dita o conhecimento sobre ervas, sementes e o cuidado com o corpo, a espiritualidade e a terra.', icon: 'Leaf', color: 'from-emerald-500 to-green-600' },
+      { relation: 'Pai', name: 'O Líder Comunitário', title: 'Sr. Dito Bizorro', description: 'A quem Dita deve o senso de coletivo e a coragem de liderar. Dele herdou a defesa da comunidade e da terra da Cascata.', icon: 'Users', color: 'from-amber-500 to-orange-600' },
       { relation: 'Nanci (Dita)', name: 'A Conselheira', title: 'Mestra de Mestres', description: 'Transmite o que recebeu: forma biólogos, professores e jovens nas práticas de agroecologia, biojoias e saberes tradicionais.', icon: 'Crown', color: 'from-purple-500 to-fuchsia-600' },
     ],
     transmission: [
@@ -234,6 +256,7 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
       'Criação de biojoias com sementes e fibras',
       'Saberes das ervas e plantas medicinais',
       'Tradições afro-brasileiras e cultura popular',
+      'Culinária Tradicional e Cultural',
     ],
   },
 
@@ -274,8 +297,8 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
     description: 'Na divisa entre São Paulo e Minas Gerais, a Cascata é uma encruzilhada de fronteiras — geográficas, históricas e culturais. Dita é a guardiã dessa passagem, a ponte entre o marco da Revolução de 1932 e o futuro climático de 2026.',
     frontier: {
       title: 'Guardiã da Fronteira',
-      description: 'Estar na divisa SP–MG faz da Cascata um território de passagem e resistência, um lugar onde memória e natureza se encontram no Marco da Revolução Constitucionalista de 1932.',
-      features: ['Divisa entre SP e MG', 'Marco da Revolução de 1932', 'Território de Mata Atlântica', 'Encruzilhada de culturas'],
+      description: 'Início do famoso Caminho da Fé, Águas da Prata, começou na Cascata. Um bairro tradicional e de resistência, um lugar onde memória e natureza se encontram. Abriga também o Marco da Revolução Constitucionalista de 1932, simbolizando a Paz.',
+      features: ['Divisa entre SP e MG', 'Marco da Revolução de 1932', 'Território de Mata Atlântica', 'Encruzilhada de culturas', 'Futurismo Ancestral', 'Meio Ambiente'],
     },
     ancestralFuture: {
       title: 'Futurismo Ancestral',
@@ -349,6 +372,84 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
       'Formação de jovens artesãos',
     ],
   },
+
+  culturePoints: [
+    {
+      name: 'Guardiões da Terra',
+      type: 'Ponto de Cultura Premiado',
+      relation: 'O espaço mais conectado à trajetória de Dita',
+      description: 'Ponto de Cultura dedicado à arte, educação ambiental e formação em práticas sustentáveis. Atua há mais de 11 anos na preservação cultural e ambiental da região, onde Dita é a "Conselheira da Sabedoria" e mestra na transmissão de saberes tradicionais.',
+      link: 'https://www.instagram.com/earthguardians_br/',
+      handle: '@earthguardians_br',
+      featured: true,
+      icon: 'Users',
+      color: 'from-emerald-500 to-green-600',
+      activities: [
+        'Oficinas de Agroecologia',
+        'Biojoias e Artesanato',
+        'Música e Audiovisual',
+        'Formação em Saberes Tradicionais',
+      ],
+    },
+    {
+      name: 'SOS Águas da Prata',
+      type: 'ONG de Assistência Social e Arte',
+      relation: 'Conectada à Dita desde 1970',
+      description: 'Serviço de Obras Sociais de Águas da Prata, existente desde 1968, que sedia o Ponto de Cultura Guardiões da Terra. Com mais de meio século de atuação, une assistência social, cidadania, cultura e meio ambiente.',
+      link: 'https://aguasdapratasos.wixstudio.com/2025',
+      handle: 'SOS Águas da Prata',
+      since: 'Desde 1970',
+      icon: 'HandHeart',
+      color: 'from-cyan-500 to-sky-600',
+      activities: [
+        'Assistência social',
+        'Ações de cidadania',
+        'Cultura e meio ambiente',
+      ],
+    },
+    {
+      name: 'ONG Casa da Árvore',
+      type: 'ONG Cultural Premiada',
+      relation: 'Reconhecida nos Editais PNAB e PROAC',
+      description: 'Instituição cultural reconhecida e premiada nos editais do PNAB (Política Nacional Aldir Blanc) e do PROAC, dedicada à valorização da cultura e da infância no território.',
+      since: 'PNAB · PROAC',
+      icon: 'TreePine',
+      color: 'from-amber-500 to-orange-600',
+      activities: [
+        'Cultura e infância',
+        'Formação cultural',
+        'Ações premiadas',
+      ],
+    },
+    {
+      name: 'Culturando na Montanha',
+      type: 'Ponto de Cultura Premiado',
+      badge: 'Convidada Ilustre',
+      relation: 'Dita participa como convidada ilustre de suas atividades',
+      description: 'Ponto de Cultura premiado, referência na valorização da cultura, da arte e da natureza de montanha. Dita participa de suas atividades como convidada ilustre, levando biojoias, arte e agroecologia entre as serras.',
+      link: 'https://www.instagram.com/culturandonamontanha/',
+      handle: '@culturandonamontanha',
+      icon: 'Mountain',
+      color: 'from-purple-500 to-indigo-600',
+      event: {
+        name: 'Encontro das Montanhas',
+        description: 'Dita marcou presença no Encontro das Montanhas, um dos grandes eventos do Culturando na Montanha, celebrando a cultura de montanha com arte, memória e partilha de saberes.',
+        participations: [
+          'Biojoias artesanais',
+          'Apresentações artísticas',
+          'Diálogos em rodas de conversa',
+        ],
+      },
+    },
+  ],
+
+  regionalCulture: [
+    'São José do Rio Pardo',
+    'Caconde',
+    'Vargem Grande do Sul',
+    'São João da Boa Vista',
+    'Outras manifestações da região',
+  ],
 
   agroecology: {
     title: 'Agroecologia Aplicada',

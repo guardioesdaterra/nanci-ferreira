@@ -99,7 +99,7 @@ const handleClose = () => {
 
                 <!-- Play button -->
                 <div class="relative z-10 flex flex-col items-center gap-4">
-                  <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-emerald-500/20 border-2 border-emerald-400/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-emerald-400/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Play class="w-10 h-10 md:w-12 md:h-12 text-emerald-400 fill-emerald-400 ml-1" />
                   </div>
                   <p class="text-white/80 font-medium text-center px-4">Clique para assistir</p>

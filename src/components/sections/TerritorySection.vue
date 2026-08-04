@@ -48,8 +48,8 @@ onMounted(() => {
       <!-- Frontier card -->
       <div class="territory-content card max-w-4xl mx-auto mb-10" style="opacity: 0">
         <div class="flex flex-col md:flex-row items-start gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-            <Compass class="w-7 h-7 text-white" />
+          <div class="w-14 h-14 rounded-2xl border border-amber-500/20 flex items-center justify-center flex-shrink-0">
+            <Compass class="w-7 h-7 text-amber-400" />
           </div>
           <div class="flex-1">
             <div class="flex items-center gap-2 mb-3">
@@ -70,8 +70,8 @@ onMounted(() => {
       <!-- Ancestral Futurism -->
       <div class="grid md:grid-cols-2 gap-6 items-stretch mb-10">
         <div class="territory-content card" style="opacity: 0">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center mb-4">
-            <Sunrise class="w-7 h-7 text-white" />
+          <div class="w-14 h-14 rounded-2xl border border-emerald-500/20 flex items-center justify-center mb-4">
+            <Sunrise class="w-7 h-7 text-emerald-400" />
           </div>
           <h3 class="text-white font-bold text-lg mb-2">{{ nanciData.territory.ancestralFuture.title }}</h3>
           <p class="text-white/60 text-sm leading-relaxed">{{ nanciData.territory.ancestralFuture.description }}</p>

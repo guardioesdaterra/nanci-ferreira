@@ -62,8 +62,8 @@ onMounted(() => {
       <!-- Method pillars -->
       <div class="grid md:grid-cols-3 gap-5 mb-14">
         <div v-for="p in nanciData.pedagogy.pillars" :key="p.title" class="pedagogy-item card" style="opacity: 0">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-4" :class="p.color">
-            <component :is="getPillarIcon(p.icon)" class="w-7 h-7 text-white" />
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 border border-white/10" :class="p.color.includes('emerald') ? 'border-emerald-500/20' : p.color.includes('amber') ? 'border-amber-500/20' : 'border-cyan-500/20'">
+            <component :is="getPillarIcon(p.icon)" class="w-7 h-7" :class="p.color.includes('emerald') ? 'text-emerald-400' : p.color.includes('amber') ? 'text-amber-400' : 'text-cyan-400'" />
           </div>
           <h3 class="text-white font-semibold text-lg mb-2">{{ p.title }}</h3>
           <p class="text-white/55 text-sm leading-relaxed">{{ p.description }}</p>
@@ -74,8 +74,8 @@ onMounted(() => {
       <div class="grid md:grid-cols-2 gap-6 mb-14">
         <div class="pedagogy-item card" style="opacity: 0">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
-              <School class="w-6 h-6 text-white" />
+            <div class="w-12 h-12 rounded-xl border border-sky-500/20 flex items-center justify-center">
+              <School class="w-6 h-6 text-sky-400" />
             </div>
             <h3 class="text-white font-bold text-lg">{{ nanciData.pedagogy.fronts.formal.title }}</h3>
           </div>
@@ -87,8 +87,8 @@ onMounted(() => {
 
         <div class="pedagogy-item card" style="opacity: 0">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
-              <TentTree class="w-6 h-6 text-white" />
+            <div class="w-12 h-12 rounded-xl border border-emerald-500/20 flex items-center justify-center">
+              <TentTree class="w-6 h-6 text-emerald-400" />
             </div>
             <h3 class="text-white font-bold text-lg">{{ nanciData.pedagogy.fronts.nonFormal.title }}</h3>
           </div>
@@ -102,8 +102,8 @@ onMounted(() => {
       <!-- Accessibility -->
       <div class="pedagogy-item glass rounded-3xl p-8 md:p-10 border border-rose-500/10 max-w-4xl mx-auto" style="opacity: 0">
         <div class="flex items-center gap-3 mb-4 justify-center">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
-            <LockOpen class="w-6 h-6 text-white" />
+          <div class="w-12 h-12 rounded-xl border border-rose-500/20 flex items-center justify-center">
+            <LockOpen class="w-6 h-6 text-rose-400" />
           </div>
           <h3 class="text-white font-bold text-xl">{{ nanciData.pedagogy.accessibility.title }}</h3>
         </div>
