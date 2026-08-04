@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Crown, Users, GraduationCap, Music, Droplets } from 'lucide-vue-next'
+import { Crown, Users, GraduationCap, Music, HeartHandshake, School } from 'lucide-vue-next'
 import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
@@ -8,10 +8,12 @@ import { nanciData } from '@/data/nanci-data'
 const sectionRef = ref<HTMLElement | null>(null)
 
 const iconComponents = {
+  Crown,
   Users,
   GraduationCap,
   Music,
-  Droplets,
+  HeartHandshake,
+  School,
 }
 
 const getIcon = (name: string) => {

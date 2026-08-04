@@ -3,9 +3,11 @@ import { Leaf, ChevronRight, Heart, TreePine, Crown } from 'lucide-vue-next'
 
 const navLinks = [
   { href: '#sobre', label: 'Sobre' },
+  { href: '#linhagem', label: 'Linhagem' },
+  { href: '#territorio', label: 'Território' },
+  { href: '#metodo', label: 'Método Dita' },
   { href: '#lideranca', label: 'Liderança' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#organizacoes', label: 'Organizações' },
+  { href: '#organizacoes', label: 'Parcerias' },
   { href: '#ods', label: 'ODS' },
 ]
 

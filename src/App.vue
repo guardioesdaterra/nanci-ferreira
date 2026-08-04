@@ -3,6 +3,9 @@ import { AppNavigation, AppFooter } from '@/components/layout'
 import {
   HeroSection,
   AboutSection,
+  LineageSection,
+  PedagogySection,
+  TerritorySection,
   KintalSection,
   GallerySection,
   OrganizationsSection,
@@ -23,6 +26,9 @@ import {
     <main>
       <HeroSection />
       <AboutSection />
+      <LineageSection />
+      <TerritorySection />
+      <PedagogySection />
       <KintalSection />
       <LeadershipSection />
       <MarchaSection />

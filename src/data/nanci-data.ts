@@ -208,20 +208,88 @@ export const nanciData: NanciData = {
     age: 73,
     location: 'Cascata, Águas da Prata - SP',
     title: 'Anciã, Visionária e Guardiã da Terra',
-    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidou-se uma referência cultural em sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
+    lineageTitle: 'Herdeira e Transmissora de Saberes Ancestrais',
+    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidou-se como referência cultural de sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
 
-Filha de líder comunitário e neta de curandeira, Dita carrega em seu sangue a força da ancestralidade. 
+Dita é a boca e as mãos de duas gerações que a precederam: neta de curandeira e filha de líder comunitário. Da avó herdou as ervas e a escuta; do pai, o senso de comunidade e a coragem de liderar. Essa linhagem não terminou nela — ela a transmite, todos os dias, às crianças e jovens da região.
 
-Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra.
+Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra — a mestra que ensina biólogos e professores.
 
 É voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
     quote: 'O simples é poderoso',
   },
 
+  lineage: {
+    title: 'Linha Ancestral',
+    badge: 'Herdeira de Saberes',
+    description: 'Dita é o elo vivo entre os saberes que recebeu e as gerações que ainda virão. Neta de curandeira, filha de líder comunitário, hoje é a "Conselheira da Sabedoria" que forma biólogos, professores e jovens artesãos.',
+    figures: [
+      { relation: 'Avó', name: 'A Curandeira', title: 'Mestra das Ervas', description: 'Guardiã das plantas medicinais e curas da Mata Atlântica. Deixou a Dita o conhecimento sobre ervas, sementes e o cuidado com o corpo e a terra.', icon: 'Leaf', color: 'from-emerald-500 to-green-600' },
+      { relation: 'Pai', name: 'O Líder Comunitário', title: 'Homem de Comunidade', description: 'A quem Dita deve o senso de coletivo e a coragem de liderar. Dele herdou a defesa da comunidade e da terra da Cascata.', icon: 'Users', color: 'from-amber-500 to-orange-600' },
+      { relation: 'Nanci (Dita)', name: 'A Conselheira', title: 'Mestra de Mestres', description: 'Transmite o que recebeu: forma biólogos, professores e jovens nas práticas de agroecologia, biojoias e saberes tradicionais.', icon: 'Crown', color: 'from-purple-500 to-fuchsia-600' },
+    ],
+    transmission: [
+      'Contação de histórias e narrativa oral',
+      'Plantio manual e cuidado com a terra',
+      'Criação de biojoias com sementes e fibras',
+      'Saberes das ervas e plantas medicinais',
+      'Tradições afro-brasileiras e cultura popular',
+    ],
+  },
+
+  pedagogy: {
+    title: 'O Método Dita',
+    badge: 'Sala de Aula Viva',
+    description: 'A pedagogia de Dita transforma o Kintal e as escolas em salas de aula vivas. Sem muros, aprende-se com a terra e com a memória: tocar a terra, ouvir as histórias, transformar sementes e fibras em arte.',
+    weeklyCommitment: 'Uma dedicação contínua e semanal à transmissão dos saberes — na escola e no Kintal da Dita.',
+    pillars: [
+      { title: 'Narrativa Oral', description: 'Cada planta, cada objeto e cada canto do território carrega uma história. Dita ensina pela palavra viva, pelos causos e pela memória dos antigos.', icon: 'BookOpen', color: 'from-amber-500 to-orange-600' },
+      { title: 'Mãos na Terra', description: 'Aprender é plantar. Dita conduz oficinas práticas de agroecologia, da semente ao alimento, onde estudantes tocam, cheiram e cuidam da terra.', icon: 'Sprout', color: 'from-emerald-500 to-green-600' },
+      { title: 'Meditação de Biojoias', description: 'Trabalho manual, paciência e gratidão: a transformação de sementes e fibras em biojoias é um exercício de atenção, autoestima e geração de renda.', icon: 'Gem', color: 'from-cyan-500 to-teal-600' },
+    ],
+    fronts: {
+      formal: {
+        title: 'Espaços Formais',
+        description: 'Escolas, institutos e universidades. Dita compartilha seus saberes com o ensino formal, formando professores, biólogos e estudantes.',
+        spaces: ['Escolas da região', 'IF São João da Boa Vista', 'Formação de professores', 'Treinamento de biólogos'],
+        icon: 'School',
+      },
+      nonFormal: {
+        title: 'Espaços Não Formais',
+        description: 'O Kintal da Dita como sala de aula aberta, onde comunidades e jovens vivem a agroecologia e a arte em contato direto com a terra.',
+        spaces: ['Kintal da Dita', 'Ponto de Cultura Guardiões da Terra', 'Oficinas comunitárias', 'Turismo e acolhida de visitantes'],
+        icon: 'TentTree',
+      },
+    },
+    accessibility: {
+      title: 'Acesso Livre e Comunitário',
+      description: 'As oficinas no Kintal e no Ponto de Cultura são gratuitas e abertas à comunidade. Um conhecimento que se democratiza, alinhado aos ODS 4 (Educação) e 10 (Redução das Desigualdades).',
+      items: ['Oficinas gratuitas', 'Aberto à comunidade', 'Acolhida de jovens e crianças', 'Respeito à diversidade'],
+    },
+  },
+
+  territory: {
+    title: 'Território de Fronteira',
+    badge: 'Futurismo Ancestral',
+    description: 'Na divisa entre São Paulo e Minas Gerais, a Cascata é uma encruzilhada de fronteiras — geográficas, históricas e culturais. Dita é a guardiã dessa passagem, a ponte entre o marco da Revolução de 1932 e o futuro climático de 2026.',
+    frontier: {
+      title: 'Guardiã da Fronteira',
+      description: 'Estar na divisa SP–MG faz da Cascata um território de passagem e resistência, um lugar onde memória e natureza se encontram no Marco da Revolução Constitucionalista de 1932.',
+      features: ['Divisa entre SP e MG', 'Marco da Revolução de 1932', 'Território de Mata Atlântica', 'Encruzilhada de culturas'],
+    },
+    ancestralFuture: {
+      title: 'Futurismo Ancestral',
+      description: 'Dita não apenas preserva o passado: ela projeta a sobrevivência do futuro. Pela agroecologia e pelos saberes tradicionais, transforma o legado ancestral em estratégia de vida diante da crise climática.',
+      quote: 'O que a terra ensinou aos nossos avós é exatamente o que vai nos salvar amanhã.',
+      quoteAuthor: '— Dita',
+    },
+    landmarks: ['Marco da Revolução de 1932', 'Mata Atlântica preservada', 'Horta e plantas medicinais', 'Kintal da Dita'],
+  },
+
   guardioesDaTerra: {
     name: 'Guardiões da Terra',
     type: 'Ponto de Cultura',
-    description: 'Ponto de Cultura dedicado à arte, educação ambiental e a formação em práticas sustentáveis. Atua há mais de 11 anos na preservação cultural e ambiental da região.',
+    description: 'Ponto de Cultura dedicado à arte, educação ambiental e a formação em práticas sustentáveis. Atua há mais de 11 anos na preservação cultural e ambiental da região. Neste Ponto de Cultura certificado, Dita é a "Conselheira da Sabedoria" e mestra indicada para a transmissão de saberes tradicionais.',
     sede: 'ONG SOS Águas da Prata',
     link: 'https://www.instagram.com/earthguardians_br/',
     ong: {
@@ -233,18 +301,19 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
     },
     activities: [
       'Oficinas semanais de Agroecologia',
-      'Oficinas semanais de Música e Audiovisual',
-      'Oficinas de Escrita e Envio de Projetos Culturais',
-      'Eventos e atividades culturais',
-      'Preservação e difusão de saberes tradicionais',
+      'Oficinas semanais de Biojoias e Artesanato',
+      'Oficinas de Música e Audiovisual',
+      'Formação em Saberes Tradicionais',
+      'Transmissão de saberes em escolas e no Kintal',
+      'Preservação e difusão de saberes ancestrais',
     ],
   },
 
   kintalDaDita: {
     name: 'Kintal da Dita',
     location: 'Cascata, Águas da Prata - SP',
-    type: 'Coletivo Artístico e Agroecológico',
-    description: 'Espaço de arte, memória e resistência aberto à comunidade. Oferece contação de histórias, cursos, oficinas de arte, agroecologia e conhecimentos tradicionais.',
+    type: 'Espaço Educativo, Coletivo Artístico e Agroecológico',
+    description: 'Sala de aula viva aberta à comunidade. Espaço de arte, memória e resistência que oferece contação de histórias, cursos, oficinas de arte, agroecologia e conhecimentos tradicionais — gratuitos e acessíveis a todos.',
     link: 'https://www.instagram.com/nanciferreira_oficial',
     historicSite: {
       name: 'Marco da Revolta de 32',
@@ -298,9 +367,9 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
   },
 
   expertise: [
-    { title: 'Guardiã', description: 'Plantio sustentável e conexão com a terra. Décadas de prática na roça.', icon: 'Shovel' },
-    { title: 'Artesã de Biojoias', description: 'Criação de joias e artesanatos com matérias-primas naturais da Mata Atlântica.', icon: 'Gem' },
-    { title: 'Sabedoria Tradicional', description: 'Treina biólogos, professores e artistas em saberes tradicionais diversos.', icon: 'Leaf' },
+    { title: 'Erveira', description: 'Herdeira dos saberes das plantas medicinais e curas da Mata Atlântica, transmitidos pela avó curandeira.', icon: 'Leaf' },
+    { title: 'Artesã de Biojoias', description: 'Criação de joias e artesanatos com matérias-primas naturais da Mata Atlântica. Ensina a técnica às novas gerações.', icon: 'Gem' },
+    { title: 'Sabedoria Tradicional', description: 'Conselheira da Sabedoria. Treina biólogos, professores e artistas em saberes tradicionais diversos.', icon: 'Shovel' },
   ],
 
   organizations: [
@@ -336,22 +405,24 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
   ],
 
   ods: [
-    { number: 4, description: 'Educação - oficinas e formação em agroecologia', color: '#C5192D' },
-    { number: 5, description: 'Igualdade de gênero - curso para mulheres IF', color: '#FF3A21' },
+    { number: 4, description: 'Educação de qualidade - oficinas e transmissão de saberes', color: '#C5192D' },
+    { number: 5, description: 'Igualdade de gênero - curso para mulheres IF e Marcha', color: '#FF3A21' },
     { number: 8, description: 'Trabalho decente - biojoias e artesanato', color: '#A21942' },
+    { number: 10, description: 'Redução das desigualdades - oficinas gratuitas e acessíveis', color: '#DD1367' },
     { number: 11, description: 'Comunidades sustentáveis - Kintal da Dita', color: '#FD9D24' },
-    { number: 13, description: 'Ação climática - Virada Climática', color: '#3F7E44' },
+    { number: 13, description: 'Ação climática - Futurismo Ancestral e agroecologia', color: '#3F7E44' },
     { number: 15, description: 'Vida terrestre - preservação Mata Atlântica', color: '#56C02B' },
   ],
 
   leadership: {
-    title: 'Liderança Anciã',
+    title: 'Conselheira da Sabedoria',
     highlights: [
-      { title: 'Marcha das Mulheres Negras 2025', subtitle: 'Liderança Anciã', description: 'Representando mulheres negras do interior paulista.', year: '2025', type: 'march', icon: 'Users', color: 'from-purple-500 to-pink-600' },
-      { title: 'Formadora em Agroecologia', subtitle: 'Consultora', description: 'Treinamento de biólogos e professores em práticas sustentáveis.', year: 'Atual', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
-      { title: 'Curso IF São João', subtitle: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia aplicada.', year: '2025', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
-      { title: 'Kintal da Dita', subtitle: 'Guardiã', description: 'Preservação do Marco da Revolta de 32 e museu artístico.', year: 'Atual', type: 'cultural', icon: 'Music', color: 'from-amber-500 to-orange-600' },
-      { title: 'Virada Climática', subtitle: 'Equipe Organizadora', description: 'Evento anual de conscientização ambiental.', year: '2024-2025', type: 'environmental', icon: 'Droplets', color: 'from-cyan-500 to-teal-600' },
+      { title: 'Conselheira da Sabedoria', subtitle: 'Ponto de Cultura Guardiões da Terra', description: 'Título concedido pelo Ponto de Cultura premiado que reconhece Dita como mestra de mestres, aquela que forma biólogos, professores e artistas.', year: 'Atual', type: 'cultural', icon: 'Crown', color: 'from-amber-500 to-yellow-600' },
+      { title: 'Marcha das Mulheres Negras 2025', subtitle: 'Liderança Anciã', description: 'Representando mulheres negras do interior paulista em Brasília, provando representação comunitária e ancestralidade.', year: '2025', type: 'march', icon: 'Users', color: 'from-purple-500 to-pink-600' },
+      { title: 'Reconhecimento Comunitário', subtitle: 'Liderança Local', description: 'Sua atuação é reconhecida por lideranças locais e representações da comunidade da Cascata e de Águas da Prata.', year: 'Atual', type: 'community', icon: 'HeartHandshake', color: 'from-rose-500 to-red-600' },
+      { title: 'Formadora em Agroecologia', subtitle: 'Mestra de Mestres', description: 'Treinamento de biólogos e professores em práticas sustentáveis e saberes tradicionais.', year: 'Atual', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
+      { title: 'Mestra Indicada', subtitle: 'Institucional', description: 'Nomeada e reconhecida por um Ponto de Cultura certificado como transmissora de saberes tradicionais.', year: 'Atual', type: 'political', icon: 'School', color: 'from-sky-500 to-blue-600' },
+      { title: 'Kintal da Dita', subtitle: 'Guardiã', description: 'Preservação do Marco da Revolta de 32 e museu artístico, território de memória e resistência.', year: 'Atual', type: 'cultural', icon: 'Music', color: 'from-cyan-500 to-teal-600' },
     ],
   },
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Home, User, Briefcase, Building2, Instagram, Camera, Menu, X, Crown, Megaphone } from 'lucide-vue-next'
+import { Home, User, Building2, Instagram, Camera, Menu, X, Crown, Megaphone, Leaf, Flame, BookOpen } from 'lucide-vue-next'
 import { useDevice, useScrollSectionDetection, useScrollProgress } from '@/composables'
 import { getImagePath } from '@/data/nanci-data'
 
@@ -13,11 +13,13 @@ const mobileMenuOpen = ref(false)
 const navItems = [
   { href: '#hero', label: 'Início', icon: Home },
   { href: '#sobre', label: 'Sobre', icon: User },
+  { href: '#linhagem', label: 'Linhagem', icon: Leaf },
+  { href: '#territorio', label: 'Território', icon: Flame },
+  { href: '#metodo', label: 'Método', icon: BookOpen },
   { href: '#lideranca', label: 'Liderança', icon: Crown },
   { href: '#marcha', label: 'Marcha 2025', icon: Megaphone },
   { href: '#galeria', label: 'Galeria', icon: Camera },
-  { href: '#projetos', label: 'Projetos', icon: Briefcase },
-  { href: '#organizacoes', label: 'Organizações', icon: Building2 },
+  { href: '#organizacoes', label: 'Parcerias', icon: Building2 },
 ]
 
 // Track scroll position for glass header effect with throttling

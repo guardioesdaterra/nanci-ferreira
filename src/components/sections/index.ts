@@ -1,5 +1,8 @@
 export { default as HeroSection } from './HeroSection.vue'
 export { default as AboutSection } from './AboutSection.vue'
+export { default as LineageSection } from './LineageSection.vue'
+export { default as PedagogySection } from './PedagogySection.vue'
+export { default as TerritorySection } from './TerritorySection.vue'
 export { default as KintalSection } from './KintalSection.vue'
 export { default as GallerySection } from './GallerySection.vue'
 export { default as OrganizationsSection } from './OrganizationsSection.vue'

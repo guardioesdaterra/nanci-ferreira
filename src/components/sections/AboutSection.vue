@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { Sparkles, Shovel, Gem, Leaf, MapPin } from 'lucide-vue-next'
+import { Sparkles, Shovel, Gem, Leaf, MapPin, Crown } from 'lucide-vue-next'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
@@ -37,7 +37,7 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 
       <!-- Bio Principal -->
       <div 
-        class="glass-glow rounded-3xl p-8 md:p-10 mb-10 max-w-4xl mx-auto border border-emerald-500/10 transition-all duration-700"
+        class="glass-glow rounded-3xl p-8 md:p-10 mb-8 max-w-4xl mx-auto border border-emerald-500/10 transition-all duration-700"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
         <div class="flex items-center justify-center gap-2 text-amber-400 text-sm mb-5">
@@ -46,6 +46,12 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
         </div>
         <div class="text-white/80 leading-relaxed text-center mb-6 text-lg">
           <p v-for="(paragraph, index) in nanciData.personal.bio.split('\n\n')" :key="index" class="mb-4">{{ paragraph }}</p>
+        </div>
+        <div
+          class="inline-flex items-center gap-2.5 glass-light rounded-full px-5 py-2.5 border border-amber-500/20 mx-auto"
+        >
+          <Crown class="w-4 h-4 text-amber-400" />
+          <span class="text-amber-300 text-sm font-medium">{{ nanciData.personal.lineageTitle }}</span>
         </div>
       </div>
 
