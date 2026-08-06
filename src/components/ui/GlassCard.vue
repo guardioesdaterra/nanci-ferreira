@@ -23,7 +23,7 @@ onMounted(() => {
             anime({
               targets: entry.target,
               opacity: [0, 1],
-              translateY: [30, 0],
+              translateY: ['clamp(1rem, 3vw, 1.875rem)', 0],
               duration: 800,
               easing: 'easeOutCubic',
             })

@@ -4,3 +4,4 @@ export { useScrollSectionDetection, useScrollProgress, useScrollSectionCache } f
 export { useOptimizedParallax, useCSS3Parallax, useElementParallax, useBackdropParallax } from './useOptimizedParallax'
 export { useVirtualScroll, useVirtualGrid, useSmoothScroll } from './useVirtualScroll'
 export { useDevice } from './useDevice'
+export { useImageBubbles } from './useImageBubbles'

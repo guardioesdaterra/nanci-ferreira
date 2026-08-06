@@ -71,7 +71,13 @@ export interface CulturePoint {
   featured?: boolean
   icon: string
   color: string
+  logo?: string
   activities?: string[]
+  links?: {
+    label: string
+    href: string
+    type?: 'instagram' | 'site' | 'gallery'
+  }[]
   event?: {
     name: string
     description: string
@@ -120,6 +126,25 @@ export interface Tourism {
   description: string;
   link: string;
   linkLabel: string;
+}
+
+export interface Festival {
+  name: string;
+  icon: string;
+  link?: string;
+}
+
+export interface ForumLink {
+  label: string;
+  href: string;
+}
+
+export interface Forum {
+  title: string;
+  location: string;
+  description: string;
+  partners: string[];
+  links?: ForumLink[];
 }
 
 export interface LineageFigure {
@@ -183,6 +208,13 @@ export interface Territory {
   landmarks: string[]
 }
 
+export interface BioHighlight {
+  icon: string
+  color: string
+  label: string
+  text: string
+}
+
 export interface NanciData {
   personal: {
     name: string
@@ -191,6 +223,7 @@ export interface NanciData {
     location: string
     title: string
     bio: string
+    bioHighlights: BioHighlight[]
     quote: string
     lineageTitle: string
   }
@@ -220,6 +253,8 @@ export interface NanciData {
   activism: string[]
   folkCulture: string[]
   events: Event[]
+  festivals2026: Festival[]
+  forum2026: Forum
   tourism: Tourism
 }
 
@@ -229,22 +264,22 @@ export const nanciData: NanciData = {
     nickname: 'Dita',
     age: 73,
     location: 'Cascata, Águas da Prata - SP',
-    title: 'Anciã, Visionária e Guardiã da Terra',
+    title: 'Anciã, Visionária e <br><span class="title-highlight">Guardiã da Terra</span>',
     lineageTitle: 'Herdeira e Transmissora de Saberes Ancestrais',
-    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidou-se como referência cultural de sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
-
-Dita é a boca e as mãos de duas gerações que a precederam: neta de curandeira e filha de líder comunitário. Da avó herdou as ervas e a escuta; do pai, o senso de comunidade e a coragem de liderar. Essa linhagem não terminou nela — ela a transmite, todos os dias, às crianças e jovens da região.
-
-Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra — a mestra que ensina biólogos e professores.
-
-É voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
+    bio: 'Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidou-se como referência cultural de sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.',
+    bioHighlights: [
+      { icon: 'Leaf', color: 'emerald', label: 'Raízes', text: 'Neta de curandeira e filha de líder comunitário. Da avó herdou as ervas e a escuta; do pai, o senso de comunidade e a coragem de liderar.' },
+      { icon: 'Sprout', color: 'amber', label: 'Kintal da Dita', text: 'Espaço de arte e resistência na Cascata, onde transmite saberes ancestrais às crianças e jovens da região.' },
+      { icon: 'Globe', color: 'cyan', label: 'Conselheira da Sabedoria', text: 'No Ponto de Cultura Guardiões da Terra, forma biólogos, professores e jovens artesãos em saberes tradicionais.' },
+      { icon: 'Megaphone', color: 'rose', label: 'Voz Ativa', text: 'Luta pela preservação ambiental, cultural e antinuclear, representando coletivos e associações de sua região.' },
+    ],
     quote: 'O simples é poderoso',
   },
 
   lineage: {
     title: 'Linha Ancestral',
     badge: 'Herdeira de Saberes',
-    description: 'Dita é o elo vivo entre os saberes que recebeu e as gerações que ainda virão. Neta de curandeira, filha de líder comunitário, hoje é a "Conselheira da Sabedoria" que forma biólogos, professores e jovens artesãos.',
+    description: 'Dita é a boca e as mãos de duas gerações que a precederam: neta de curandeira e filha de líder comunitário. Da avó herdou as ervas e a escuta; do pai, o senso de comunidade e a coragem de liderar. Essa linhagem não terminou nela — ela a transmite, todos os dias, às crianças e jovens da região.',
     figures: [
       { relation: 'Avó', name: 'A Curandeira', title: 'Mestra das Ervas', description: 'Guardiã das plantas medicinais e curas da Mata Atlântica, parteira renomada da cidade. Deixou a Dita o conhecimento sobre ervas, sementes e o cuidado com o corpo, a espiritualidade e a terra.', icon: 'Leaf', color: 'from-emerald-500 to-green-600' },
       { relation: 'Pai', name: 'O Líder Comunitário', title: 'Sr. Dito Bizorro', description: 'A quem Dita deve o senso de coletivo e a coragem de liderar. Dele herdou a defesa da comunidade e da terra da Cascata.', icon: 'Users', color: 'from-amber-500 to-orange-600' },
@@ -397,10 +432,17 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
       relation: 'Conectada à Dita desde 1970',
       description: 'Serviço de Obras Sociais de Águas da Prata, existente desde 1968, que sedia o Ponto de Cultura Guardiões da Terra. Com mais de meio século de atuação, une assistência social, cidadania, cultura e meio ambiente.',
       link: 'https://aguasdapratasos.wixstudio.com/2025',
-      handle: 'SOS Águas da Prata',
+      handle: '@sosparatodxs',
       since: 'Desde 1970',
       icon: 'HandHeart',
       color: 'from-cyan-500 to-sky-600',
+      logo: 'https://static.wixstatic.com/media/dd258c_2d9d820a5c5e4470973b7914733924b9~mv2.png/v1/fill/w_830,h_564,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/sos%20-%20super2.png',
+      links: [
+        { label: 'Site', href: 'https://aguasdapratasos.wixstudio.com/2025', type: 'site' },
+        { label: 'História', href: 'https://aguasdapratasos.wixstudio.com/2025/sobre', type: 'site' },
+        { label: 'Galeria Histórica', href: 'https://aguasdapratasos.wixstudio.com/2025/historia', type: 'gallery' },
+        { label: 'Instagram', href: 'https://www.instagram.com/sosparatodxs', type: 'instagram' },
+      ],
       activities: [
         'Assistência social',
         'Ações de cidadania',
@@ -412,9 +454,14 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
       type: 'ONG Cultural Premiada',
       relation: 'Reconhecida nos Editais PNAB e PROAC',
       description: 'Instituição cultural reconhecida e premiada nos editais do PNAB (Política Nacional Aldir Blanc) e do PROAC, dedicada à valorização da cultura e da infância no território.',
+      link: 'https://www.instagram.com/ong.casadaarvore/',
+      handle: '@ong.casadaarvore',
       since: 'PNAB · PROAC',
       icon: 'TreePine',
       color: 'from-amber-500 to-orange-600',
+      links: [
+        { label: 'Instagram', href: 'https://www.instagram.com/ong.casadaarvore/', type: 'instagram' },
+      ],
       activities: [
         'Cultura e infância',
         'Formação cultural',
@@ -532,12 +579,27 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje é a "Conselheira 
   folkCulture: ['Congo', 'Folia de Reis', 'Dança de São Gonçalo', 'Maracatu', 'Tradições Afro-brasileiras'],
 
   events: [
-    { name: 'Virada Climática 2024/2025', icon: 'Calendar' },
-    { name: 'Marcha das Mulheres Negras 2025', icon: 'Users' },
+    { name: 'Virada Climática 2024/2025/2026', icon: 'Calendar' },
+    { name: 'Marcha das Mulheres Negras', icon: 'Users' },
     { name: 'Curso IF São João da Boa Vista', icon: 'GraduationCap' },
     { name: 'Oficinas de Biojoias', icon: 'Gem' },
     { name: 'Festivais Regionais', icon: 'Music' },
   ],
+  festivals2026: [
+    { name: 'Festival Pé da Serra', icon: 'Mountain', link: 'https://www.instagram.com/p/DYxUBZOEag8/?img_index=1' },
+    { name: 'Festival Arte no Mato', icon: 'TreePine', link: 'https://www.instagram.com/p/DX27zk_jkZF/?img_index=3' },
+    { name: 'Festival Vulcão Cultural', icon: 'Flame', link: 'https://www.instagram.com/p/DXy3wsPDoL9/?img_index=1' },
+  ],
+  forum2026: {
+    title: 'Fórum de Pontos de Cultura Estadual',
+    location: 'Campinas 2026',
+    description: 'Representada como liderança anciã na defesa dos Pontos de Cultura do estado de São Paulo.',
+    partners: ['PNAB', 'PROAC', 'Mídia Ninja'],
+    links: [
+      { label: 'CultSP PRO', href: 'https://www.cultsppro.org.br/' },
+      { label: 'Sec Cultura SP', href: 'https://www.cultura.sp.gov.br/sec_cultura' },
+    ],
+  },
   tourism: {
     title: 'Prata Expedições',
     subtitle: 'Guia Local',

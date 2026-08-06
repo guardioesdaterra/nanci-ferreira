@@ -25,7 +25,7 @@ onMounted(() => {
           anime({
             targets: '.lineage-figure',
             opacity: [0, 1],
-            translateY: [30, 0],
+            translateY: ['1.875rem', 0],
             scale: [0.95, 1],
             delay: anime.stagger(120),
             duration: 600,
@@ -48,44 +48,47 @@ onMounted(() => {
     <div class="max-w-6xl mx-auto relative z-10">
       <SectionHeader :title="nanciData.lineage.title" :badge="nanciData.lineage.badge" center>
         <template #badge-icon>
-          <Sparkles class="w-4 h-4 text-amber-400" />
+          <Sparkles class="size-fluid-icon text-amber-400" />
         </template>
       </SectionHeader>
 
       <p
-        class="text-white/70 text-center text-fluid-base max-w-3xl mx-auto mb-12 leading-relaxed"
+        class="text-white/70 text-center text-fluid-base max-w-3xl mx-auto mb-[clamp(1.5rem,4vw,3rem)] leading-relaxed"
       >
         {{ nanciData.lineage.description }}
       </p>
 
       <!-- Lineage chain -->
-      <div class="grid md:grid-cols-3 gap-6 mb-14 items-stretch">
-        <div v-for="(f, i) in nanciData.lineage.figures" :key="f.relation" class="lineage-figure relative card text-center" style="opacity: 0">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.5vw,1.5rem)] md:gap-[clamp(1rem,2vw,1.5rem)] mb-[clamp(1.75rem,4vw,3.5rem)] items-stretch">
+        <div v-for="(f, i) in nanciData.lineage.figures" :key="f.relation"
+             class="lineage-figure relative card text-center"
+             :class="i === nanciData.lineage.figures.length - 1 && nanciData.lineage.figures.length % 2 !== 0 ? 'col-span-2 md:col-span-1' : ''"
+             style="opacity: 0">
           <!-- connecting arrow -->
           <div v-if="i < nanciData.lineage.figures.length - 1" class="hidden md:flex absolute top-1/2 -right-6 -translate-y-1/2 items-center justify-center z-20">
-            <ArrowDown class="w-5 h-5 text-amber-400 rotate-[-90deg]" />
+            <ArrowDown class="size-fluid-icon text-amber-400 rotate-[-90deg]" />
           </div>
-          <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 border border-white/10">
-            <component :is="getIcon(f.icon)" class="w-8 h-8" :class="f.color.includes('emerald') ? 'text-emerald-400' : f.color.includes('amber') ? 'text-amber-400' : 'text-purple-400'" />
+          <div class="w-[clamp(2.5rem,5vw,4rem)] h-[clamp(2.5rem,5vw,4rem)] mx-auto rounded-2xl flex items-center justify-center mb-[clamp(0.75rem,1.5vw,1rem)] border border-white/10">
+            <component :is="getIcon(f.icon)" class="size-fluid-icon-lg" :class="f.color.includes('emerald') ? 'text-emerald-400' : f.color.includes('amber') ? 'text-amber-400' : 'text-purple-400'" />
           </div>
-          <span class="text-amber-400/80 text-xs font-semibold uppercase tracking-wider">{{ f.relation }}</span>
-          <h3 class="text-white font-bold text-lg mt-1">{{ f.name }}</h3>
-          <p class="text-emerald-400 text-sm mb-3">{{ f.title }}</p>
-          <p class="text-white/55 text-sm leading-relaxed">{{ f.description }}</p>
+          <span class="text-amber-400/80 text-fluid-xs font-semibold uppercase tracking-wider">{{ f.relation }}</span>
+          <h3 class="text-white font-bold text-fluid-lg mt-[clamp(0.125rem,0.3vw,0.25rem)]">{{ f.name }}</h3>
+          <p class="text-emerald-400 text-fluid-sm mb-[clamp(0.5rem,1vw,0.75rem)]">{{ f.title }}</p>
+          <p class="text-white/55 text-fluid-sm leading-relaxed">{{ f.description }}</p>
         </div>
       </div>
 
       <!-- Transmission -->
-      <div class="glass rounded-3xl p-8 md:p-10 border border-amber-500/10 max-w-4xl mx-auto">
-        <h3 class="text-white font-semibold text-center mb-6 text-xl">O que atravessa gerações</h3>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="glass rounded-3xl p-[clamp(1.5rem,3vw,2rem)] md:p-[clamp(2rem,4vw,2.5rem)] border border-amber-500/10 max-w-4xl mx-auto">
+        <h3 class="text-white font-semibold text-center mb-[clamp(1rem,2vw,1.5rem)] text-fluid-xl">O que atravessa gerações</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-[clamp(0.5rem,1vw,0.75rem)]">
           <div
             v-for="(t, i) in nanciData.lineage.transmission"
             :key="t"
-            class="flex items-center gap-3 glass-light rounded-xl px-4 py-3"
+            class="flex items-center gap-[clamp(0.5rem,1vw,0.75rem)] glass-light rounded-xl px-[clamp(0.75rem,1.5vw,1rem)] py-[clamp(0.5rem,1vw,0.75rem)]"
           >
-            <component :is="transmissionIcons[i % transmissionIcons.length]" class="w-5 h-5 text-amber-400 flex-shrink-0" />
-            <span class="text-white/80 text-sm">{{ t }}</span>
+            <component :is="transmissionIcons[i % transmissionIcons.length]" class="size-fluid-icon text-amber-400 flex-shrink-0" />
+            <span class="text-white/80 text-fluid-sm">{{ t }}</span>
           </div>
         </div>
       </div>

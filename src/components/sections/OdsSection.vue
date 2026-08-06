@@ -24,24 +24,24 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="ods" class="section">
+  <section id="ods" class="section-compact">
     <SectionBackground image-path="/dita-photo.webp" :opacity="0.25" :blur="4" gradient="subtle" />
 
-    <div class="max-w-5xl mx-auto relative z-10">
+    <div class="max-w-5xl mx-auto relative z-10 w-full">
       <SectionHeader title="Objetivos de Desenvolvimento Sustentável" badge="Alinhamento ONU" center>
         <template #badge-icon>
-          <Target class="w-4 h-4 text-emerald-400" />
+          <Target class="text-emerald-400 size-fluid-icon" />
         </template>
       </SectionHeader>
 
-      <div ref="gridRef" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div v-for="ods in nanciData.ods" :key="ods.number" class="ods-item glass rounded-xl p-4 group transition-all duration-300 hover:bg-white/10" style="opacity:0">
-          <div class="relative mb-2">
+      <div ref="gridRef" class="grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.5vw,1rem)]">
+        <div v-for="ods in nanciData.ods" :key="ods.number" class="ods-item glass rounded-xl p-[clamp(0.75rem,1.5vw,1rem)] group transition-all duration-300 hover:bg-white/10" style="opacity:0">
+          <div class="relative mb-[clamp(0.375rem,0.8vw,0.5rem)]">
             <img :src="getImagePath(`/ods_${ods.number}.webp`)" :alt="`ODS ${ods.number}`" class="w-full h-auto aspect-square rounded-lg" loading="lazy" />
             <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
-            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold" :style="{ color: ods.color }">{{ ods.number }}</span>
+            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-fluid-2xl font-bold" :style="{ color: ods.color }">{{ ods.number }}</span>
           </div>
-          <p class="text-white/60 text-xs text-center">{{ ods.description }}</p>
+          <p class="text-white/60 text-fluid-xs text-center">{{ ods.description }}</p>
         </div>
       </div>
     </div>

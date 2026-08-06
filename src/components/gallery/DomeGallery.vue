@@ -153,8 +153,8 @@ onUnmounted(() => {
         class="dome-item absolute inset-0 m-auto cursor-pointer"
         :style="{
           ...getItemStyle(item),
-          width: isMobile ? '80px' : '120px',
-          height: isMobile ? '80px' : '120px',
+          width: isMobile ? 'clamp(4rem, 10vw, 5rem)' : 'clamp(5rem, 12vw, 7.5rem)',
+          height: isMobile ? 'clamp(4rem, 10vw, 5rem)' : 'clamp(5rem, 12vw, 7.5rem)',
         }"
         @click.stop="openImage(item.src)"
       >
@@ -168,8 +168,8 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 glass-light rounded-full px-4 py-2 pointer-events-none">
-      <p class="text-white/60 text-xs">
+    <div class="absolute bottom-[clamp(1rem,2vw,1.25rem)] left-1/2 -translate-x-1/2 glass-light rounded-full px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] pointer-events-none">
+      <p class="text-white/60 text-fluid-xs">
         {{ isTouch ? 'Arraste para girar' : 'Clique e arraste para girar' }}
       </p>
     </div>
@@ -178,7 +178,7 @@ onUnmounted(() => {
       <Transition name="fade">
         <div
           v-if="selectedImage"
-          class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+          class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-[clamp(1rem,2vw,1.25rem)]"
           @click="closeImage"
         >
           <img
@@ -188,7 +188,7 @@ onUnmounted(() => {
             @click.stop
           />
           <button
-            class="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl hover:bg-white/20 transition-colors"
+            class="absolute top-[clamp(1rem,2vw,1.25rem)] right-[clamp(1rem,2vw,1.25rem)] w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/10 flex items-center justify-center text-white text-fluid-lg hover:bg-white/20 transition-colors"
             @click="closeImage"
           >
             ✕

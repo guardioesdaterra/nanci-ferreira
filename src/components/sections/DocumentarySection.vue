@@ -65,7 +65,7 @@ const handleClose = () => {
 </script>
 
 <template>
-  <section id="documentario" class="section py-20 md:py-28 relative">
+  <section id="documentario" class="section">
     <SectionBackground
       image-path="/nanci-dita-full.webp"
       :opacity="0.1"
@@ -73,7 +73,7 @@ const handleClose = () => {
       gradient="subtle"
     />
 
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <div class="max-w-6xl mx-auto relative z-10">
       <SectionHeader
         title="Documentários"
         subtitle="Projetos Audiovisuais"
@@ -81,7 +81,7 @@ const handleClose = () => {
       />
 
       <!-- Documentary List -->
-      <div class="mt-12 md:mt-16 space-y-12 md:space-y-16">
+      <div class="mt-[clamp(3rem,4vw,4.5rem)] md:mt-[clamp(4rem,5vw,5rem)] space-y-[clamp(3rem,6vw,4rem)] md:space-y-[clamp(4rem,8vw,5rem)]">
         <div v-for="doc in documentaries" :key="doc.id" class="documentary-card">
           <!-- Video Container -->
           <div class="relative w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl overflow-hidden border border-emerald-500/20 shadow-2xl">
@@ -98,11 +98,11 @@ const handleClose = () => {
                 <div class="absolute inset-0 bg-gradient-to-b from-slate-800/50 via-black/40 to-black/80" />
 
                 <!-- Play button -->
-                <div class="relative z-10 flex flex-col items-center gap-4">
-                  <div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-emerald-400/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Play class="w-10 h-10 md:w-12 md:h-12 text-emerald-400 fill-emerald-400 ml-1" />
+                <div class="relative z-10 flex flex-col items-center gap-[clamp(1rem,2vw,1.25rem)]">
+                  <div class="w-[clamp(5rem,6vw,6rem)] h-[clamp(5rem,6vw,6rem)] md:w-[clamp(6rem,7vw,7rem)] md:h-[clamp(6rem,7vw,7rem)] rounded-full border border-emerald-400/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Play class="w-[clamp(2.5rem,3vw,3rem)] h-[clamp(2.5rem,3vw,3rem)] md:w-[clamp(3rem,3.5vw,3.5rem)] md:h-[clamp(3rem,3.5vw,3.5rem)] text-emerald-400 fill-emerald-400 ml-[clamp(0.25rem,0.5vw,0.25rem)]" />
                   </div>
-                  <p class="text-white/80 font-medium text-center px-4">Clique para assistir</p>
+                  <p class="text-white/80 font-medium text-center px-[clamp(1rem,2vw,2rem)]">Clique para assistir</p>
                 </div>
               </div>
 
@@ -114,19 +114,19 @@ const handleClose = () => {
               >
                 <!-- Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-b from-slate-800/70 via-black/60 to-black/90" />
-                <div class="text-center relative z-10 px-6">
-                  <div class="mb-4">
-                    <Play class="w-12 h-12 md:w-16 md:h-16 text-emerald-400/30 mx-auto mb-4" />
+                <div class="text-center relative z-10 px-[clamp(1.5rem,2.5vw,2.5rem)]">
+                  <div class="mb-[clamp(1rem,1.5vw,1.5rem)]">
+                    <Play class="w-[clamp(3rem,4vw,4rem)] h-[clamp(3rem,4vw,4rem)] md:w-[clamp(4rem,5vw,5rem)] md:h-[clamp(4rem,5vw,5rem)] text-emerald-400/70 mx-auto mb-[clamp(1rem,1.5vw,1.5rem)]" />
                   </div>
-                  <p class="text-white/80 font-medium mb-2">Reprodução em outros sites desativada</p>
-                  <p class="text-white/60 text-sm mb-6">Assista diretamente no YouTube</p>
+                  <p class="text-white/80 font-medium mb-[clamp(0.5rem,0.75vw,0.75rem)]">Reprodução em outros sites desativada</p>
+                  <p class="text-white/60 text-fluid-sm mb-[clamp(1.5rem,2vw,2rem)]">Assista diretamente no YouTube</p>
                   <a
                     :href="`https://www.youtube.com/watch?v=${doc.videoId}`"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 hover:border-emerald-500/50 transition-colors font-medium"
+                    class="inline-flex items-center gap-[clamp(0.5rem,0.75vw,0.75rem)] px-[clamp(1.5rem,2.5vw,2.5rem)] py-[clamp(0.75rem,1vw,1rem)] rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 hover:border-emerald-500/50 transition-colors font-medium"
                   >
-                    <ExternalLink class="w-5 h-5" />
+                    <ExternalLink class="w-[clamp(1.25rem,1.5vw,1.5rem)] h-[clamp(1.25rem,1.5vw,1.5rem)]" />
                     Assistir no YouTube
                   </a>
                 </div>
@@ -139,7 +139,7 @@ const handleClose = () => {
               >
                 <div class="text-center relative z-10">
                   <p class="text-white/60 font-medium">Vídeo em breve</p>
-                  <p class="text-white/40 text-sm mt-2">Link do vídeo será disponibilizado em breve</p>
+                  <p class="text-white/55 text-fluid-sm mt-[clamp(0.5rem,0.75vw,0.75rem)]">Link do vídeo será disponibilizado em breve</p>
                 </div>
               </div>
 
@@ -158,45 +158,45 @@ const handleClose = () => {
               <button
                 v-if="playingDocId === doc.id && doc.videoId && doc.embeddable !== false"
                 @click="handleClose"
-                class="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/50 hover:bg-black/75 transition-colors"
+                class="absolute top-[clamp(1rem,2vw,1.25rem)] right-[clamp(1rem,2vw,1.25rem)] z-20 p-[clamp(0.5rem,1vw,0.75rem)] rounded-full bg-black/50 hover:bg-black/75 transition-colors"
                 aria-label="Fechar vídeo"
               >
-                <X class="w-6 h-6 text-white" />
+                <X class="w-[clamp(1.5rem,2vw,2rem)] h-[clamp(1.5rem,2vw,2rem)] text-white" />
               </button>
             </div>
           </div>
 
           <!-- Info below video -->
-          <div class="mt-8 md:mt-10">
-            <div class="grid md:grid-cols-3 gap-6">
+          <div class="mt-[clamp(2rem,2.5vw,2.5rem)] md:mt-[clamp(2.5rem,3vw,3rem)]">
+            <div class="grid md:grid-cols-3 gap-[clamp(1.5rem,2vw,2rem)]">
               <!-- Title and Description -->
               <div class="md:col-span-2">
-                <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                <h3 class="text-fluid-2xl md:text-fluid-3xl font-bold text-white mb-[clamp(0.75rem,1vw,1rem)]">
                   {{ doc.title }}
                 </h3>
-                <p class="text-white/70 leading-relaxed text-base md:text-lg">
+                <p class="text-white/70 leading-relaxed text-fluid-base md:text-fluid-lg">
                   {{ doc.description }}
                 </p>
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <span v-for="tag in doc.tags" :key="tag" class="inline-block px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium">
+                <div class="mt-[clamp(1.25rem,1.5vw,1.5rem)] flex flex-wrap gap-[clamp(0.5rem,0.75vw,0.75rem)]">
+                  <span v-for="tag in doc.tags" :key="tag" class="inline-block px-[clamp(1rem,1.5vw,1.5rem)] py-[clamp(0.5rem,0.75vw,0.75rem)] rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-fluid-sm font-medium">
                     {{ tag }}
                   </span>
                 </div>
               </div>
 
               <!-- Credits / Details -->
-              <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <h4 class="text-white font-semibold mb-4 flex items-center gap-2">
-                  <div class="w-2 h-2 rounded-full bg-emerald-400" />
+              <div class="bg-white/5 border border-white/10 rounded-xl p-[clamp(1.5rem,2vw,2rem)] backdrop-blur-sm">
+                <h4 class="text-white font-semibold mb-[clamp(1rem,1.5vw,1.5rem)] flex items-center gap-[clamp(0.5rem,0.75vw,0.75rem)]">
+                  <div class="w-[clamp(0.5rem,0.75vw,0.75rem)] h-[clamp(0.5rem,0.75vw,0.75rem)] rounded-full bg-emerald-400" />
                   Detalhes
                 </h4>
-                <div class="space-y-3 text-sm">
+                <div class="space-y-[clamp(0.5rem,1vw,0.75rem)] text-fluid-sm">
                   <div v-for="(value, key) in doc.details" :key="key">
-                    <p class="text-white/50 text-xs uppercase tracking-wide mb-1">{{ key }}</p>
+                    <p class="text-white/50 text-fluid-xs uppercase tracking-wide mb-[clamp(0.25rem,0.375vw,0.375rem)]">{{ key }}</p>
                     <p class="text-white/90 font-medium">{{ value }}</p>
                   </div>
                   <div>
-                    <p class="text-white/50 text-xs uppercase tracking-wide mb-1">Ano</p>
+                    <p class="text-white/50 text-fluid-xs uppercase tracking-wide mb-[clamp(0.25rem,0.375vw,0.375rem)]">Ano</p>
                     <p class="text-white/90 font-medium">{{ doc.year }}</p>
                   </div>
                 </div>
@@ -208,10 +208,3 @@ const handleClose = () => {
     </div>
   </section>
 </template>
-
-<style scoped>
-.section {
-  position: relative;
-  overflow: hidden;
-}
-</style>

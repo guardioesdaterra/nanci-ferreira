@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { AppNavigation, AppFooter } from '@/components/layout'
+import { ImageBubbles } from '@/components/ui'
 import {
   HeroSection,
   AboutSection,
@@ -12,8 +13,7 @@ import {
   LeadershipSection,
   MarchaSection,
   DocumentarySection,
-  TourismSection,
-  EventsSection,
+  ExperienciasSection,
   OdsSection,
   CtaSection,
 } from '@/components/sections'
@@ -21,6 +21,7 @@ import {
 
 <template>
   <div class="min-h-screen">
+    <ImageBubbles />
     <AppNavigation />
 
     <main>
@@ -35,8 +36,7 @@ import {
       <DocumentarySection />
       <GallerySection />
       <OrganizationsSection />
-      <TourismSection />
-      <EventsSection />
+      <ExperienciasSection />
       <OdsSection />
       <CtaSection />
     </main>

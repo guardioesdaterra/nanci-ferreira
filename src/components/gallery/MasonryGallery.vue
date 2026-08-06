@@ -74,11 +74,11 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 <template>
   <div>
     <!-- Filter Bar -->
-    <div class="flex flex-wrap gap-2 mb-6">
+    <div class="flex flex-wrap gap-[clamp(0.5rem,1vw,0.75rem)] mb-[clamp(1.5rem,3vw,2rem)]">
       <button
         v-for="cat in categories"
         :key="cat"
-        class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+        class="px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-full text-fluid-sm font-medium transition-colors"
         :class="activeCategory === cat ? 'bg-emerald-500 text-white' : 'glass-light text-white/70 hover:text-white'"
         @click="setCategory(cat)"
       >
@@ -87,7 +87,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
     </div>
 
     <!-- Gallery Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[clamp(0.5rem,1vw,0.75rem)]">
       <div
         v-for="(image, index) in displayedImages"
         :key="image.src"
@@ -105,7 +105,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
     </div>
 
     <!-- Load More -->
-    <div v-if="hasMore" class="mt-8 text-center">
+    <div v-if="hasMore" class="mt-[clamp(2rem,4vw,3rem)] text-center">
       <button class="btn-outline" @click="loadMore">
         Carregar mais ({{ filteredImages.length - visibleCount }} restantes)
       </button>
@@ -121,18 +121,18 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
         >
           <button
             v-if="selectedIndex > 0"
-            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 z-10"
+            class="absolute left-[clamp(1rem,2vw,1.25rem)] top-1/2 -translate-y-1/2 w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 z-10"
             @click.stop="prevImage"
           >
-            <ChevronLeft class="w-6 h-6" />
+            <ChevronLeft class="size-fluid-icon-lg" />
           </button>
           
           <button
             v-if="selectedIndex < displayedImages.length - 1"
-            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 z-10"
+            class="absolute right-[clamp(1rem,2vw,1.25rem)] top-1/2 -translate-y-1/2 w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 z-10"
             @click.stop="nextImage"
           >
-            <ChevronRight class="w-6 h-6" />
+            <ChevronRight class="size-fluid-icon-lg" />
           </button>
 
           <img
@@ -143,13 +143,13 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
           />
 
           <button
-            class="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+            class="absolute top-[clamp(1rem,2vw,1.25rem)] right-[clamp(1rem,2vw,1.25rem)] w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
             @click="closeLightbox"
           >
-            <X class="w-6 h-6" />
+            <X class="size-fluid-icon-lg" />
           </button>
 
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+          <div class="absolute bottom-[clamp(1rem,2vw,1.25rem)] left-1/2 -translate-x-1/2 text-white/60 text-fluid-sm">
             {{ selectedIndex + 1 }} / {{ displayedImages.length }}
           </div>
         </div>

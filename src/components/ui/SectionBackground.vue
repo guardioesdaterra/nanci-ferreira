@@ -30,7 +30,7 @@ const gradientStyle = computed(() => {
 
 const imageStyle = computed(() => ({
   opacity: props.opacity,
-  filter: props.blur > 0 ? `blur(${props.blur}px)` : 'none',
+  filter: props.blur > 0 ? `blur(clamp(${props.blur * 0.5}px, ${props.blur * 0.15}vw, ${props.blur}px))` : 'none',
 }))
 </script>
 

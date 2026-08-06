@@ -78,11 +78,11 @@ watch(activeCategory, () => {
 <template>
   <div>
     <!-- Category Filter -->
-    <div class="flex flex-wrap gap-2 mb-8 justify-center">
+    <div class="flex flex-wrap gap-[clamp(0.5rem,1vw,0.75rem)] mb-[clamp(2rem,4vw,3rem)] justify-center">
       <button
         v-for="cat in categories"
         :key="cat"
-        class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+        class="px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-full text-fluid-sm font-medium transition-all duration-300"
         :class="activeCategory === cat 
           ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25' 
           : 'glass-light text-white/70 hover:text-white hover:bg-white/10'"
@@ -93,7 +93,7 @@ watch(activeCategory, () => {
     </div>
 
     <!-- Gallery Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-[clamp(0.5rem,1vw,0.75rem)] md:gap-[clamp(0.75rem,1.5vw,1rem)]">
       <div
         v-for="(image, index) in displayedImages"
         :key="`${image.src}-${index}`"
@@ -113,15 +113,15 @@ watch(activeCategory, () => {
            @load="onImageLoad(index)"
         />
         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div class="w-11 h-11 rounded-full backdrop-blur-md border border-white/25 flex items-center justify-center group-hover:scale-100 scale-75 transition-transform duration-300">
-            <Expand class="w-5 h-5 text-white" />
+          <div class="w-[clamp(2.5rem,5vw,2.75rem)] h-[clamp(2.5rem,5vw,2.75rem)] rounded-full backdrop-blur-md border border-white/25 flex items-center justify-center group-hover:scale-100 scale-75 transition-transform duration-300">
+            <Expand class="size-fluid-icon text-white" />
           </div>
         </div>
       </div>
     </div>
 
     <!-- Load More -->
-    <div v-if="hasMore" class="mt-10 text-center">
+    <div v-if="hasMore" class="mt-[clamp(2.5rem,5vw,4rem)] text-center">
       <button 
         class="btn-outline group"
         @click="visibleCount += 20"
@@ -146,18 +146,18 @@ watch(activeCategory, () => {
           <!-- Navigation -->
           <button
             v-if="selectedIndex > 0"
-            class="nav-btn left-2 md:left-4"
+            class="nav-btn left-[clamp(0.5rem,1vw,1rem)] md:left-[clamp(1rem,2vw,1.25rem)]"
             @click="navigate(-1)"
           >
-            <ChevronLeft class="w-6 h-6" />
+            <ChevronLeft class="size-fluid-icon-lg" />
           </button>
           
           <button
             v-if="selectedIndex < displayedImages.length - 1"
-            class="nav-btn right-2 md:right-4"
+            class="nav-btn right-[clamp(0.5rem,1vw,1rem)] md:right-[clamp(1rem,2vw,1.25rem)]"
             @click="navigate(1)"
           >
-            <ChevronRight class="w-6 h-6" />
+            <ChevronRight class="size-fluid-icon-lg" />
           </button>
 
           <!-- Image -->
@@ -171,19 +171,19 @@ watch(activeCategory, () => {
 
           <!-- Close -->
           <button
-            class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            class="absolute top-[clamp(1rem,2vw,1.25rem)] right-[clamp(1rem,2vw,1.25rem)] w-[clamp(2.5rem,5vw,2.75rem)] h-[clamp(2.5rem,5vw,2.75rem)] rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
             @click="closeLightbox"
           >
-            <X class="w-5 h-5" />
+            <X class="size-fluid-icon" />
           </button>
 
           <!-- Counter -->
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 glass-light rounded-full px-4 py-2 text-white/80 text-sm">
+          <div class="absolute bottom-[clamp(1rem,2vw,1.25rem)] left-1/2 -translate-x-1/2 glass-light rounded-full px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] text-white/80 text-fluid-sm">
             {{ selectedIndex + 1 }} / {{ displayedImages.length }}
           </div>
 
           <!-- Swipe hint (mobile) -->
-          <div class="absolute bottom-16 left-1/2 -translate-x-1/2 text-white/40 text-xs md:hidden">
+          <div class="absolute bottom-[clamp(3rem,6vw,4rem)] left-1/2 -translate-x-1/2 text-white/50 text-fluid-xs md:hidden">
             Deslize para navegar
           </div>
         </div>
@@ -201,7 +201,7 @@ watch(activeCategory, () => {
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(clamp(1rem, 2vw, 1.25rem)) scale(0.95);
   }
   to {
     opacity: 1;
@@ -210,7 +210,7 @@ watch(activeCategory, () => {
 }
 
 .nav-btn {
-  @apply absolute top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-all z-10;
+  @apply absolute top-1/2 -translate-y-1/2 w-[clamp(2.5rem,5vw,2.75rem)] h-[clamp(2.5rem,5vw,2.75rem)] rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-all z-10;
 }
 
 .nav-btn:hover {
@@ -218,9 +218,9 @@ watch(activeCategory, () => {
 }
 
 .cinema-image {
-  border-radius: 4px;
+  border-radius: clamp(3px, 0.4vw, 4px);
   filter: brightness(1.05) contrast(1.02);
-  box-shadow: 0 0 120px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 clamp(6rem, 12vw, 7.5rem) rgba(0, 0, 0, 0.9);
   animation: cinemaReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -240,7 +240,7 @@ watch(activeCategory, () => {
   from {
     opacity: 0;
     transform: scale(1.04);
-    filter: brightness(0.7) blur(4px);
+    filter: brightness(0.7) blur(clamp(2px, 0.4vw, 4px));
   }
   to {
     opacity: 1;

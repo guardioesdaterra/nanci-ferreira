@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import { Users, Music, Mountain, Globe, Building, Leaf, GraduationCap, Heart, Shield, ArrowUpRight } from 'lucide-vue-next'
 import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
 const sectionRef = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
 
-const iconComponents = {
+const iconComponents: Record<string, any> = {
   Globe,
   Building,
   Leaf,
@@ -19,9 +21,7 @@ const iconComponents = {
   Shield,
 }
 
-const getIcon = (name: string) => {
-  return iconComponents[name as keyof typeof iconComponents]
-}
+const getIcon = (name: string) => iconComponents[name]
 
 const getIconColor = (color: string) => {
   const colorMap: Record<string, string> = {
@@ -57,20 +57,19 @@ const getGradientClasses = (color: string) => {
   return colorMap[color] || { bg: 'from-emerald-500 to-green-600', glow: 'group-hover:shadow-emerald-500/20', border: 'group-hover:border-emerald-500/30' }
 }
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          anime({ targets: '.org-card', opacity: [0, 1], translateY: [30, 0], scale: [0.95, 1], delay: anime.stagger(60), duration: 600, easing: 'easeOutCubic' })
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-  if (sectionRef.value) observer.observe(sectionRef.value)
-})
+useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    isVisible.value = true
+    anime({
+      targets: '.org-card',
+      opacity: [0, 1],
+      translateY: ['clamp(1rem, 2vw, 1.875rem)', 0],
+      delay: anime.stagger(50),
+      duration: 600,
+      easing: 'easeOutCubic',
+    })
+  }
+}, { threshold: 0.1 })
 </script>
 
 <template>
@@ -80,73 +79,49 @@ onMounted(() => {
     <div class="max-w-7xl mx-auto relative z-10">
       <SectionHeader title="Organizações e Movimentos" badge="Rede de Parcerias" center>
         <template #badge-icon>
-          <Building class="w-4 h-4 text-emerald-400" />
+          <Building class="size-fluid-icon text-emerald-400" />
         </template>
       </SectionHeader>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <div 
-          v-for="(org, i) in nanciData.organizations" 
-          :key="i" 
-          class="org-card group relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2"
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[clamp(0.75rem,1.5vw,1rem)]">
+        <div
+          v-for="(org, i) in nanciData.organizations"
+          :key="i"
+          class="org-card card group"
           :class="[getGradientClasses(org.color).glow, getGradientClasses(org.color).border]"
-          style="opacity:0"
+          :style="{ transitionDelay: `${i * 40}ms` }"
+          style="opacity: 0"
         >
-          <!-- Background gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500" :class="org.color" />
-          
-          <!-- Glass background -->
-          <div class="absolute inset-0 backdrop-blur-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.08] rounded-2xl transition-all duration-500 group-hover:border-white/20 group-hover:from-white/[0.12] group-hover:to-white/[0.04]" />
-          
-          <!-- Content -->
-          <div class="relative z-10 p-5 h-full flex flex-col">
-            <!-- Header with icon and role badge -->
-            <div class="flex items-start gap-4 mb-4">
-              <div
-                class="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110"
-              >
-                <component :is="getIcon(org.icon)" class="w-6 h-6" :class="getIconColor(org.color)" />
-              </div>
-              <div class="flex-1 min-w-0 pt-1">
-                <span 
-                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider transition-all duration-300"
-                  :class="[
-                    'bg-gradient-to-r',
-                    getGradientClasses(org.color).bg,
-                    'text-white/90 shadow-sm'
-                  ]"
-                >
-                  {{ org.role }}
-                </span>
-              </div>
+          <div class="flex items-start gap-[clamp(0.5rem,1vw,0.75rem)]">
+            <div
+              class="rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110"
+              style="width: clamp(2rem, 4vw, 2.5rem); height: clamp(2rem, 4vw, 2.5rem);"
+            >
+              <component :is="getIcon(org.icon)" class="size-fluid-icon" :class="getIconColor(org.color)" />
             </div>
-
-            <!-- Title -->
-            <h3 class="text-base font-bold text-white mb-2 leading-snug group-hover:text-white transition-colors duration-300">
-              {{ org.name }}
-            </h3>
-
-            <!-- Description -->
-            <p class="text-white/50 text-sm leading-relaxed mb-4 flex-grow group-hover:text-white/70 transition-colors duration-300 line-clamp-3">
-              {{ org.description }}
-            </p>
-
-            <!-- Link button -->
-            <div class="mt-auto">
-              <a 
-                v-if="org.link" 
-                :href="org.link" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 bg-white/5 hover:bg-white/15 text-white/70 hover:text-white border border-white/10 hover:border-white/20 group/link"
+            <div class="flex-1 min-w-0">
+              <h3 class="text-white font-semibold text-fluid-xs leading-snug mb-[clamp(0.125rem,0.25vw,0.25rem)]">{{ org.name }}</h3>
+              <span
+                class="inline-flex items-center px-[clamp(0.375rem,0.75vw,0.5rem)] py-[clamp(0.0625rem,0.15vw,0.125rem)] rounded-full text-fluid-xs font-bold uppercase tracking-wider text-white/95"
+                :class="['bg-gradient-to-r', getGradientClasses(org.color).bg]"
               >
-                <span>Visitar</span>
-                <ArrowUpRight class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-              </a>
-              <div v-else class="h-9" /> <!-- Spacer for cards without links -->
+                {{ org.role }}
+              </span>
             </div>
           </div>
 
+          <p class="text-white/60 text-fluid-xs mt-[clamp(0.5rem,1vw,0.75rem)] leading-relaxed">{{ org.description }}</p>
+
+          <a
+            v-if="org.link"
+            :href="org.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-[clamp(0.5rem,1vw,0.75rem)] inline-flex items-center gap-[clamp(0.375rem,0.75vw,0.5rem)] text-fluid-xs font-semibold text-white/50 hover:text-white transition-colors duration-300 group/link"
+          >
+            <span>Visitar</span>
+            <ArrowUpRight class="size-fluid-icon transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+          </a>
         </div>
       </div>
     </div>
