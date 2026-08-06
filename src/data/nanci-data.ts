@@ -63,6 +63,7 @@ export interface CulturePoint {
   name: string
   type: string
   badge?: string
+  founders?: string
   relation: string
   description: string
   link?: string
@@ -427,6 +428,24 @@ export const nanciData: NanciData = {
       ],
     },
     {
+      name: 'ASCEC',
+      type: 'Associação Sócio-Cultural',
+      founders: 'Cofundada por Nanci Ferreira (Dita) e Malala',
+      relation: 'O espaço mais conectado à trajetória de Dita',
+      description: 'A ASCEC foi cofundada em 2000 por Nanci Ferreira (Dita) e Malala — diretora do renomado Conservatório de Poços de Caldas — com o intuito de dar suporte à população e resgatar a cultura. Assim tornou-se um espaço comunitário desenvolvendo cursos profissionalizantes, projetos, oficinas, festas tradicionais, oferecendo cultura, arte e lazer.',
+      link: 'https://www.facebook.com/people/Associa%C3%A7%C3%A3o-S%C3%B3cio-Cultural-da-Esta%C3%A7%C3%A3o-da-Cascata-Ascec/',
+      featured: true,
+      icon: 'HandHeart',
+      color: 'from-rose-500 to-pink-600',
+      activities: [
+        'Cursos profissionalizantes',
+        'Projetos',
+        'Oficinas',
+        'Festas tradicionais',
+        'Cultura, arte e lazer',
+      ],
+    },
+    {
       name: 'SOS Águas da Prata',
       type: 'ONG de Assistência Social e Arte',
       relation: 'Conectada à Dita desde 1970',
@@ -522,16 +541,18 @@ export const nanciData: NanciData = {
 
   organizations: [
     { name: 'Guardiões da Terra', role: 'Líder e Oficineira', description: 'Coletivo Ponto de Cultura ligado à ONG internacional Earth Guardians, que oferece suporte a jovens ativistas do mundo inteiro. Arte, educação ambiental e formação há 11+ anos.', link: 'https://www.instagram.com/earthguardians_br/', icon: 'Globe', color: 'from-emerald-600/30 to-green-700/30' },
-    { name: 'ONG SOS Águas da Prata', role: 'Pontão de Cultura', description: 'Serviço de Obras Sociais que sedia o Ponto de Cultura Guardiões da Terra.', link: 'https://aguasdapratasos.wixstudio.com/2025', icon: 'Building', color: 'from-cyan-600/30 to-blue-700/30' },
+    { name: 'ONG SOS Águas da Prata', role: 'Rede Local da Dita', description: 'Serviço de Obras Sociais de Águas da Prata, existente desde 1968, que sedia o Ponto de Cultura Guardiões da Terra. Com mais de meio século de atuação, une assistência social, cidadania, cultura e meio ambiente.', link: 'https://aguasdapratasos.wixstudio.com/2025', icon: 'Building', color: 'from-cyan-600/30 to-blue-700/30' },
     { name: 'Kintal da Dita', role: 'Guardiã e Artesã', description: 'Coletivo artístico e agroecológico aberto à comunidade. Contação de histórias, oficinas de arte, cursos de agroecologia e saberes tradicionais.', icon: 'Leaf', color: 'from-amber-600/30 to-orange-700/30' },
-    { name: 'Associação Sociocultural da Estação da Cascata', role: 'Co-fundadora', description: 'Coofundado com Malala, renomada diretora, para o desenvolvimento humano e cultural da Cascata.', icon: 'Users', color: 'from-rose-600/30 to-red-700/30' },
+    { name: 'Associação Sócio Cultural da Estação da Cascata - ASCEC', role: 'Co-fundadora', description: 'Criada no ano 2000 por Nanci Ferreira (Dita) e Malala — diretora do renomado Conservatório de Poços de Caldas — com o intuito de dar suporte à população e resgatar a cultura. Tornou-se um espaço comunitário desenvolvendo cursos profissionalizantes, projetos, oficinas, festas tradicionais, oferecendo cultura, arte e lazer.', link: 'https://www.facebook.com/people/Associação-Sócio-Cultural-da-Estação-da-Cascata-Ascec/100069909641476/#', icon: 'Users', color: 'from-rose-600/30 to-red-700/30' },
     { name: 'Bhumisparsha School', role: 'Parceira', description: 'Escola de música, audiovisual e arte que provê estrutura técnica para shows e eventos do SOS e Guardiões da Terra.', link: 'https://www.bhumisparshaschool.org/', icon: 'Music', color: 'from-purple-600/30 to-indigo-700/30' },
     { name: 'Earth Guardians', role: 'Parceira Internacional', description: 'ONG internacional que oferece suporte a jovens ativistas do mundo inteiro.', link: 'https://www.earthguardians.org/', icon: 'Globe', color: 'from-teal-600/30 to-emerald-700/30' },
-    { name: 'Culturando na Montanha', role: 'Parceira', description: 'Ponto de Cultura premiado em São Tomé das Letras. Intervenções artísticas, shows e oficinas em eventos culturais.', link: 'https://www.instagram.com/culturandonamontanha/', icon: 'Mountain', color: 'from-teal-600/30 to-cyan-700/30' },
+    { name: 'Culturando na Montanha', role: 'Convidada Ilustre', description: 'Ponto de Cultura premiado, referência na valorização da cultura, da arte e da natureza de montanha. Dita participa de suas atividades como convidada ilustre, levando biojoias, arte e agroecologia entre as serras.', link: 'https://www.instagram.com/culturandonamontanha/', icon: 'Mountain', color: 'from-teal-600/30 to-cyan-700/30' },
     { name: 'Baque Mulher', role: 'Figura Ilustre', description: 'Maracatu interestadual celebrando a força das mulheres negras.', link: 'https://www.instagram.com/baquemulhersjbv/', icon: 'Heart', color: 'from-pink-600/30 to-rose-700/30' },
     { name: 'IF São João da Boa Vista', role: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia e práticas sustentáveis.', link: 'https://www.sbv.ifsp.edu.br/', icon: 'GraduationCap', color: 'from-green-600/30 to-emerald-700/30' },
+    { name: 'IF Poços de Caldas', role: 'Parceira', description: 'Instituto Federal parceiro em ações de educação, cultura e sustentabilidade na região.', link: 'https://www.pocoscaldas.ifsp.edu.br/', icon: 'GraduationCap', color: 'from-lime-600/30 to-green-700/30' },
     { name: 'Conselho do Idoso', role: 'Conselheira', description: 'Defesa dos direitos da população idosa em Águas da Prata.', icon: 'Users', color: 'from-blue-600/30 to-sky-700/30' },
     { name: 'Movimento Antinuclear', role: 'Ativista', description: 'Luta ambiental contra exploração nuclear na região.', link: 'https://www.instagram.com/terraviva_aguarara/', icon: 'Shield', color: 'from-red-600/30 to-orange-700/30' },
+    { name: 'ONG Casa da Árvore', role: 'Parceira', description: 'Instituição cultural reconhecida e premiada nos editais do PNAB (Política Nacional Aldir Blanc) e do PROAC, dedicada à valorização da cultura e da infância no território.', link: 'https://www.instagram.com/ong.casadaarvore/', icon: 'Leaf', color: 'from-fuchsia-600/30 to-purple-700/30' },
   ],
 
   projects: [
