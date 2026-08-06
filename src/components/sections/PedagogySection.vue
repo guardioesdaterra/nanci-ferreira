@@ -55,15 +55,14 @@ const getPillarColors = (color: string) => pillarColors[color] || { icon: 'text-
         {{ nanciData.pedagogy.description }}
       </p>
 
-      <!-- Weekly commitment strip -->
-      <div class="pedagogy-item glass rounded-2xl max-w-3xl mx-auto mb-[clamp(3.5rem, 7vw, 4.5rem)] overflow-hidden" style="opacity: 0">
-        <div class="flex items-center gap-[clamp(1rem, 2vw, 1.5rem)] p-[clamp(1rem, 2vw, 1.5rem)]">
-          <div class="w-[clamp(2.25rem, 4.5vw, 2.75rem)] h-[clamp(2.25rem, 4.5vw, 2.75rem)] rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-            <Sprout class="size-fluid-icon text-emerald-400" />
-          </div>
-          <div>
-            <span class="block text-emerald-400/80 text-[clamp(0.625rem,0.6rem+0.15vw,0.7rem)] font-semibold uppercase tracking-wider mb-[clamp(0.125rem,0.2vw,0.2rem)]">Compromisso Semanal</span>
-            <p class="text-white/75 text-fluid-xs leading-relaxed">{{ nanciData.pedagogy.weeklyCommitment }}</p>
+      <!-- Weekly commitment -->
+      <div class="pedagogy-item max-w-3xl mx-auto mb-[clamp(3.5rem, 7vw, 4.5rem)]" style="opacity: 0">
+        <div class="relative group">
+          <!-- accent line left -->
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-8 rounded-full bg-gradient-to-b from-emerald-400 to-teal-500 opacity-60 group-hover:opacity-100 transition-opacity" />
+          <div class="pl-5 py-1">
+            <span class="block text-emerald-400/90 text-[0.65rem] sm:text-xs font-semibold uppercase tracking-[0.15em] mb-1">Compromisso Semanal</span>
+            <p class="text-white/60 text-sm sm:text-base leading-relaxed">{{ nanciData.pedagogy.weeklyCommitment }}</p>
           </div>
         </div>
       </div>
